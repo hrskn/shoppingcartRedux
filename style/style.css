@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:700');
+
+body {
+    background-color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 200px;
+    
+}
+.productList {
+    margin-top: 1em;
+    
+}
+.quantity {
+    width: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
+.product {
+    margin-top: 1em;
+    padding-top: 2em;
+    margin-left: 2em;
+
+    text-align: center;
+    vertical-align: middle;
+}
+.price {
+    float:left;
+    line-height: 1.5em;
+}
+.cart {
+    float:right;
+    margin-right: 2em;
+    margin-top: -1em;
+    
+}
+.btn-block {
+    margin-top: 1em; 
+}
+.remove {
+    margin-top: 0.5em;
+    margin-left: 1em;
+}
+.find {
+    margin-left: 1em;
+}
+.footer {
+  
+  }

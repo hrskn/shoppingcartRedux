@@ -1,0 +1,4 @@
+export const ADD_PRODUCT = 'add_product';
+export const REMOVE_PRODUCT = 'remove_product';
+export const INCREMENT_QUANTITY = 'increment_quantity';
+export const SET_TEXT_FILTER = 'set_text_filter';
