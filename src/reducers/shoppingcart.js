@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, REMOVE_PRODUCT, INCREMENT_QUANTITY} from '../actions/types';
+import { ADD_PRODUCT, REMOVE_PRODUCT, EMPTY_CART} from '../actions/types';
 const productReducerDefaultState = [];
 
 export default function(state = productReducerDefaultState, action) {
@@ -8,21 +8,11 @@ export default function(state = productReducerDefaultState, action) {
 
         case REMOVE_PRODUCT:
             return state.filter(({ id })  => id !== action.id);
+
+        case EMPTY_CART: 
+            return [];
         
-        case INCREMENT_QUANTITY:
-            return state.map(({id}) => {
-                console.log(id);
-              if (id === action.id) {
-                  console.log("halleluja")
-                return 
-                  {}
-                  
-               
-              } else {
-                return product
-              };
-            });
-          default:
+        default:
             return state;
         }
 };

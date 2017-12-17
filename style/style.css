@@ -5,6 +5,7 @@ body {
     font-family: 'Lato', sans-serif;
     margin-bottom: 200px;
     
+    
 }
 .productList {
     margin-top: 1em;
@@ -16,10 +17,11 @@ body {
     vertical-align: middle;
 }
 .product {
-    margin-top: 1em;
-    padding-top: 2em;
+    margin-top: 2em;
+    padding-top: 1em;
+    margin-right: 1em;
     margin-left: 2em;
-
+    border: 1px solid;
     text-align: center;
     vertical-align: middle;
 }
@@ -29,20 +31,32 @@ body {
 }
 .cart {
     float:right;
-    margin-right: 2em;
+    margin-right: 3em;
     margin-top: -1em;
-    
+    cursor: pointer;
+}
+.cart:hover {
+    text-shadow: 1px 1px 1px #ccc;
 }
 .btn-block {
     margin-top: 1em; 
+    margin-bottom: 1em;
 }
-.remove {
-    margin-top: 0.5em;
-    margin-left: 1em;
+.nav {
+    margin-left: 2em;
+}
+.search {
+    padding-left: 0.5em;
+    font-size: 18px;
+    color: #616161 
 }
 .find {
     margin-left: 1em;
 }
 .footer {
   
+  }
+  .cartitems {
+      font-size: 1.5rem;
+      padding-left: 0.8em;
   }

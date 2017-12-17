@@ -11,8 +11,8 @@ export default () => {
     filters: filtersReducer,
   }),persistedState,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+  // save it to localstorage
   store.subscribe(() => {
-    console.log(store)
     saveState(store.getState());
   });
 

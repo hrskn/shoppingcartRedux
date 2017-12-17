@@ -1,12 +1,11 @@
 import React, {Component}from 'react';
 import {connect} from 'react-redux';
 import {Modal, Button} from 'react-bootstrap';
-import { Link } from 'react-router';
 import * as actions from '../actions';
 
 class ShoppingCart extends Component {
-    constructor(...args) {
-        super(...args);
+    constructor(props) {
+        super(props);
 
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
@@ -16,6 +15,7 @@ class ShoppingCart extends Component {
         }
     }
     componentWillMount() {
+        // if cart is not empty, open the cart modal
         if (!this.isEmpty(this.props.cart)) {
             this.open();
         } 
@@ -27,11 +27,17 @@ class ShoppingCart extends Component {
     open() {
         this.setState({ showModal: true });
     }
+    // remove product from the cart
     removeFromCart(product) {
         this.props.removeProduct(product);
         console.log(product)
     
     }
+    // empties the cart
+    emptyCart() {
+        this.props.emptyCart()
+    }
+    // check if modal cart is empty
     isEmpty(obj) {
         for(var key in obj) {
             if(obj.hasOwnProperty(key))
@@ -43,20 +49,33 @@ class ShoppingCart extends Component {
         
         let items = 0;
         let totalPrice = 0;      
-        
-        const updatedCart = this.props.cart.map(product => {
+        // map through the cart and add products to the modal
+        const updatedCart = this.props.cart.map((product,i)=> {
             items++;
-            product.id = `product${items}`;
+            product.id = `product${i}`;
             totalPrice += product.price
-            
-            return ( <div>
-                        <span>{product.description} - {product.price}€</span>
+            return ( 
+                
+                    
+                        <div className="row">
+                        <div className="col-md-3">
+                        <span>{product.description}</span>
+                        </div>
+                        <div className="col-md-3">
+                        <span>{product.price}€</span>
+                        </div>
+                        <div className="col-md-3">
+                        <i className="remove fa fa-trash-o" aria-hidden="true"
                         
-                        <i  className="remove fa fa-window-close" 
                             onClick={this.removeFromCart.bind(this, product)} 
                             aria-hidden="true">
                         </i>
-                    </div> )         
+                        </div>
+                        
+                        
+                        </div>
+                    
+                 )         
             });
         
         return (
@@ -64,23 +83,24 @@ class ShoppingCart extends Component {
                     <i  className="cart fa fa-shopping-cart fa-4x" aria-hidden="true"
                         bsStyle="primary"
                         bsSize="small"
-                        onClick={this.open}>
-                        
+                        onClick={this.open}><span className="cartitems">{items}</span>     
                     </i>
-               
 
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title><strong>Shopping Cart</strong> </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className="product-list"><strong>{updatedCart}</strong>
+                    <div className="container-fluid">
+                        {updatedCart}
                         </div>
+                        
                     </Modal.Body>
                     <Modal.Footer>
                         <span className="price"><strong>Total:</strong> {totalPrice}€</span>
-                        <button className="btn btn-primary" onClick={this.close}>Checkout</button>
+                        <button className="btn btn-primary">Checkout</button>                        
                         <button className="btn btn-success" onClick={this.close}>Close</button>
+                        <button className="btn btn-danger" onClick={this.emptyCart.bind(this)}><i className="remove fa fa-trash-o" aria-hidden="true"></i></button>                        
                     </Modal.Footer>
                 </Modal>
            

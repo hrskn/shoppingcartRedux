@@ -12,17 +12,22 @@ class ProductList extends Component {
     }
     
     componentDidMount() {
+        // get the data from the json file
         const inventoryURL = 'https://api.myjson.com/bins/1gdlrn';
-        fetch(inventoryURL)
-        .then((res ) => {
-            return res.json();
-        })
-        .then((data) => {
-            this.setState({products:data})    
-        })
+        try {
+            fetch(inventoryURL)
+            .then((res ) => {
+                return res.json();
+            })
+            .then((data) => {
+                this.setState({products:data})    
+            })
+        }
+        catch(e) {console.log(e)}
     }
        
     render() {
+        // add search text filter to products
         const visibleFilter = selectProducts(this.state.products, this.props.filters)
         let renderProducts = visibleFilter.map((product, i) => {
             return (

@@ -5,9 +5,12 @@ class SearchFilter extends Component {
     render() {
         return (
             <div>
-            <input type="text" value={this.props.filters.text} onChange={(e) => {
-                this.props.dispatch(setTextFilter(e.target.value))}} />
-                <i className="find fa fa-search 4x" aria-hidden="true"></i>
+            <input  className="search"type="text" value={this.props.filters.text} 
+                    onChange={(e) => {
+                    this.props.dispatch(setTextFilter(e.target.value))}} 
+                    placeholder="Product search... 🔍"
+                    />
+                
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import {Modal, Button} from 'react-bootstrap';
+
 class Product extends Component {
     constructor(props) {
         super(props);
@@ -9,10 +9,10 @@ class Product extends Component {
             product: props.product,
             amount: 1
         }
-    
     }
     addToCart(product, amount) {
-      if (product.stockQuantity >= amount) {
+        // check amount trying to be added to the cart
+        if (product.stockQuantity >= amount) {
             for (let i = 0; i < amount; i++) {
             let uniqueProduct = {...product}
             this.props.addProduct(uniqueProduct);
