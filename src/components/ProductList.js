@@ -8,7 +8,6 @@ class ProductList extends Component {
     constructor(props) {
         super(props);
         this.state = {products: []}
-    
     }
     
     componentDidMount() {
@@ -23,9 +22,9 @@ class ProductList extends Component {
                 this.setState({products:data})    
             })
         }
-        catch(e) {console.log(e)}
+        catch(e) {}
     }
-       
+
     render() {
         // add search text filter to products
         const visibleFilter = selectProducts(this.state.products, this.props.filters)
@@ -36,7 +35,7 @@ class ProductList extends Component {
         });
         return (
             <div>
-            {renderProducts}
+                {renderProducts}
             </div>
         )
        

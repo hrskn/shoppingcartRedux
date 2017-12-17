@@ -1,4 +1,4 @@
-import {ADD_PRODUCT, REMOVE_PRODUCT, INCREMENT_QUANTITY, SET_TEXT_FILTER, EMPTY_CART} from './types';
+import {ADD_PRODUCT, REMOVE_PRODUCT, SET_TEXT_FILTER, EMPTY_CART} from './types';
 
 export function addProduct(product) {
     return {
@@ -11,10 +11,10 @@ export const removeProduct = ({ id } = {}) => ({
     type: REMOVE_PRODUCT,
     id
   });
-export function emptyCart(cart) {
+
+export function emptyCart() {
     return {
-      type: EMPTY_CART,
-      cart
+      type: EMPTY_CART
     }
 } 
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { setTextFilter} from '../actions/index'
+
 class SearchFilter extends Component {
     render() {
         return (

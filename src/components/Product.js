@@ -27,7 +27,6 @@ class Product extends Component {
 	};
        
     render() {
-        
         const { product, amount } = this.state
         return (
                 
