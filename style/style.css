@@ -53,10 +53,14 @@ body {
 .find {
     margin-left: 1em;
 }
-.footer {
-  
-  }
   .cartitems {
       font-size: 1.5rem;
       padding-left: 0.8em;
   }
+  @media screen and (max-width: 480px) {
+    .cart {
+        margin-left: 2em;
+        margin-top: 0.5em;
+        float: none;
+    }
+}
